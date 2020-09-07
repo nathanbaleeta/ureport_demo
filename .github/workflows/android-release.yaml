@@ -57,6 +57,7 @@ jobs:
         with:
           artifacts: "build/app/outputs/apk/release/*.apk,build/app/outputs/bundle/release/app-release.aab"
           tag: latest  
+          commit: master  
           token: ${{ secrets.GH_TOKEN }}
             
           
