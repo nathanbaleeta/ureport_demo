@@ -78,7 +78,7 @@ jobs:
       - name: Create a Release in GitHub
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/bundle/release/app-release.aab"
+          artifacts: "build/app/outputs/bundle/release/*.aab"
           token: ${{ secrets.GH_TOKEN }}
-          tag: ${{ steps.version.outputs.content }}
+          # tag: ${{ steps.version.outputs.content }}
           commit: ${{ github.sha }}
