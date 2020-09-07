@@ -50,7 +50,6 @@ jobs:
           path: version.txt
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build apk --release --split-per-abi
       - run: flutter build appbundle --target-platform android-arm,android-arm64,android-x64
       - name: Create a Release in GitHub
         uses: ncipollo/release-action@v1
