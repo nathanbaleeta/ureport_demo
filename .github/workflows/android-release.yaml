@@ -32,6 +32,8 @@ jobs:
           name: gitversion
           path: version.txt
   build:
+    name: Build APK and Create release
+    needs: [ version ]
     # This job will run on ubuntu virtual machine
     runs-on: ubuntu-latest
     steps:
