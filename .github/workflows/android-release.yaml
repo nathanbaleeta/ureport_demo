@@ -52,15 +52,15 @@ jobs:
       - run: flutter test
       - run: flutter build appbundle --target-platform android-arm,android-arm64,android-x64
       - run: flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
-      - name: Create Release in GitHub
-        uses: ncipollo/release-action@v1
+      - name: Create release and upload apk
+        uses: underwindfall/create-release-with-debugapk@v2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          artifacts: "build/app/outputs/apk/release/*.apk,build/app/outputs/bundle/release/app-release.aab"
-          token: ${{ secrets.GH_TOKEN }}  
-          tag: ${{ steps.version.outputs.content }}
-          commit: ${{ github.sha }}
-          prerelease: true  
-            
+          tag_name: ${{ steps.version.outputs.content }}
+          asset_path: "build/app/outputs/apk/release/*.apk,build/app/outputs/bundle/release/app-release.aab"
+          asset_name: Example.apk
+          asset_content_type: application/zip      
           
   
         
