@@ -14,10 +14,10 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.17.1'
+          flutter-version: '1.17.0'
       - run: flutter pub get
       - run: flutter test
-      - run: flutter clean && flutter build apk -t lib/main.dart --split-per-abi
+      - run: flutter build apk -t lib/main.dart --split-per-abi
       - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
